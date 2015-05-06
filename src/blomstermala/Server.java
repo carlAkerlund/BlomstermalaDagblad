@@ -3,10 +3,26 @@ package blomstermala;
 
 
 public class Server {
-<<<<<<< HEAD
-	
-=======
  //HEJHEJ
 	//CALLEKUK
->>>>>>> db065854b405777341cb4f3d2d79a2140026f3cd
+	
+	public void addArticle(){
+		
+	}
+	
+	public void addComment(){
+		
+	}
+	
+	public Message getCategories(){
+		return null;
+	}
+	
+	public Message getHeadlines(){
+		return null;
+	}
+	
+	public Message getArticle(){
+		return null ;
+	}
 }
