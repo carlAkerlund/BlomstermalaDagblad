@@ -2,11 +2,10 @@ package blomstermala;
 
 import java.awt.Dimension;
 
-import javax.swing.*;
+import javax.swing.JFrame;
 
-public class UI extends JPanel {
-	
-	public static void main(String [] args) {
+public class Start {
+	public static void main(String[] args) {
 		JFrame frame = new JFrame();
 		frame.setPreferredSize(new Dimension(800, 600));
 		frame.setVisible(true);
