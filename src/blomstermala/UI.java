@@ -39,7 +39,8 @@ public class UI extends JPanel {
 	private Controller contr;
 
 	
-	public UI() {
+	public UI(Controller inCont) {
+		contr = inCont;
 		lblBack.setIcon(backGround);
 		lblBack.setLayout(new BorderLayout());
 		lblBack.setForeground(Color.WHITE);
@@ -89,12 +90,7 @@ public class UI extends JPanel {
 		return panelCenter;
 	}
 	
-	public JPanel getPanelCenterNorth(String[] inSubCats) {
-		String[] subCats = inSubCats;
-		panelCenterNorth.setLayout(new GridLayout(1, 5));
-		for(int i = 0; i < subCats.length; i++) {
-		}
-		
+	public JPanel getPanelCenterNorth() {
 		return panelCenterNorth;
 	}
 	
@@ -102,14 +98,13 @@ public class UI extends JPanel {
 		return panelCenterWest;	
 	}
 	
-	public void setPanel() {
-		
+	public void setPanel(JPanel inPanel) {
 	}
 	
 	private class Listener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == btnSport) {
-				JOptionPane.showMessageDialog(null, "H");
+				contr.setSport();
 			}
 			
 		}

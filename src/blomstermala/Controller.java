@@ -6,20 +6,14 @@ import javax.swing.JFrame;
 
 public class Controller {
 	
-	private String[] sportSub = { "Fotboll", "Hockey", "Bandy", "Korvätning" };
-	private String[] entSub = { "TV", "Film", "Serier", "Skvaller", "Spel" };
-	private String[] PolSub = {"Inrikes", "Utrikes"};
-	private String[] foodSub = {"Träning", "Mat", "Själ"};
-	
 	private UI ui;
 
 	public Controller() {
-		ui = new UI();
+		ui = new UI(this);
 		setUI();
 	}
 	
 	public void setSport() {
-		
 	}
 	
 	public void setUI() {
