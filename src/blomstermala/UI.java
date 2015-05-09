@@ -3,6 +3,7 @@ package blomstermala;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,15 +14,17 @@ public class UI extends JPanel {
 	
 	private JLabel lblTitle = new JLabel();
 	private JLabel lblBack = new JLabel();
-	private ImageIcon titleIcon = new ImageIcon("/Users/gustavbodestad/Documents/Skola/Eclipse/BlomstermalaDagblad/res/blomstermåla.png");
-	private ImageIcon backGround = new ImageIcon("/Users/gustavbodestad/Documents/Skola/Eclipse/BlomstermalaDagblad/res/bakgrund.png");
+//	private ImageIcon titleIcon = new ImageIcon("/Users/gustavbodestad/Documents/Skola/Eclipse/BlomstermalaDagblad/res/blomstermåla.png");
+//	private ImageIcon backGround = new ImageIcon("/Users/gustavbodestad/Documents/Skola/Eclipse/BlomstermalaDagblad/res/bakgrund.png");
+	private ImageIcon titleIcon = new ImageIcon("src/media/blomstermåla.png");
+	private ImageIcon backGround = new ImageIcon("src/media/bakgrund.png");
 	
 	private JPanel panelNorth = new JPanel();
 	private JPanel panelWest = new JPanel();
 	private JPanel panelSouth = new JPanel();
 	private JPanel panelCenter = new JPanel();
-	private JPanel panelCenterWest = new JPanel();
-	private JPanel panelCenterNorth = new JPanel();
+	private JPanel panelCenterCenter = new JPanel();
+	private JPanel panelSport = new JPanel();
 	
 	private JButton btnStart = new JButton("Startsida");
 	private JButton btnSport = new JButton("Sport");
@@ -37,6 +40,13 @@ public class UI extends JPanel {
 	private Listener listener = new Listener();
 	
 	private Controller contr;
+	
+	private JLabel lblHead = new JLabel("Världens längsta gylf sågs till i Centrum");
+	private JTextArea areaText = new JTextArea("Flera personer hörde på onsdag förmiddag av sig till "
+			+ "polisen och vittnade om att en ordentligt lång gylf sågs passera genom"
+			+ " centrum. Polisen kunde konfrontera gylfen och konstaterade snabbt att det "
+			+ "var den hittills längsta som någonsin vandrat på Malmös gator. 'Ett fynd', säger Polismästare"
+			+ " Möller. ");
 
 	
 	public UI(Controller inCont) {
@@ -48,6 +58,7 @@ public class UI extends JPanel {
 		add(lblBack);
 		lblBack.add(getPanelNorth(), BorderLayout.NORTH);
 		lblBack.add(getPanelWest(), BorderLayout.WEST);
+		lblBack.add(getPanelCenter(), BorderLayout.CENTER);
 	}
 	
 	public void setController(Controller inCont) {
@@ -86,20 +97,59 @@ public class UI extends JPanel {
 	}
 	
 	public JPanel getPanelCenter() {
+		JPanel panelW = new JPanel();
+		JPanel panelE = new JPanel();
+		panelW.setPreferredSize(new Dimension(10, 100));
+		panelE.setPreferredSize(new Dimension(200, 100));
+		panelW.setOpaque(false);
+		panelE.setOpaque(false);
 		panelCenter.setLayout(new BorderLayout());
+		panelCenter.add(getSportpanel(), BorderLayout.NORTH);
+		panelCenter.add(getPanelCenterCenter(), BorderLayout.CENTER);
+		panelCenter.add(panelW, BorderLayout.WEST);
+		panelCenter.add(panelE, BorderLayout.EAST);
+		panelCenter.setBorder(BorderFactory.createTitledBorder("Sport"));
+		panelCenter.setOpaque(false);
 		return panelCenter;
 	}
 	
-	public JPanel getPanelCenterNorth() {
-		return panelCenterNorth;
+	public JPanel getPanelCenterCenter() {
+		
+		panelCenterCenter.setOpaque(false);
+		panelCenterCenter.setLayout(new BorderLayout());
+		lblHead.setFont(getFont().deriveFont(18.0f));
+		areaText.setLineWrap(true);
+		areaText.setWrapStyleWord(true);
+		
+		panelCenterCenter.add(lblHead, BorderLayout.NORTH);
+		panelCenterCenter.add(areaText, BorderLayout.CENTER);
+		
+		return panelCenterCenter;
+		
 	}
 	
-	public JPanel getPanelCenterWest() {
-		return panelCenterWest;	
+	public JPanel getSportpanel() {
+		panelSport.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.BLACK));
+		JButton btnFoot = new JButton("Fotboll");
+		JButton btnHockey = new JButton("Hockey");
+		JButton btnBox = new JButton("Boxning");
+		JButton btnKorv = new JButton("Korvätning");
+		btnFoot.setBorderPainted( false );
+		btnHockey.setBorderPainted( false );
+		btnBox.setBorderPainted( false );
+		btnKorv.setBorderPainted( false );
+		btnFoot.addActionListener(listener);
+		btnHockey.addActionListener(listener);
+		btnBox.addActionListener(listener);
+		btnKorv.addActionListener(listener);
+		panelSport.add(btnBox);
+		panelSport.add(btnKorv);
+		panelSport.add(btnHockey);
+		panelSport.add(btnFoot);
+		panelSport.setOpaque(false);
+		return panelSport;
 	}
-	
-	public void setPanel(JPanel inPanel) {
-	}
+
 	
 	private class Listener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
