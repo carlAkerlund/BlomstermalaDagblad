@@ -40,14 +40,37 @@ public class UI extends JPanel {
 	private Listener listener = new Listener();
 	
 	private Controller contr;
+	private JPanel[] articles;
 	
 	private JLabel lblHead = new JLabel("Världens längsta gylf sågs till i Centrum");
 	private JTextArea areaText = new JTextArea("Flera personer hörde på onsdag förmiddag av sig till "
 			+ "polisen och vittnade om att en ordentligt lång gylf sågs passera genom"
 			+ " centrum. Polisen kunde konfrontera gylfen och konstaterade snabbt att det "
 			+ "var den hittills längsta som någonsin vandrat på Malmös gator. 'Ett fynd', säger Polismästare"
-			+ " Möller. ");
-
+			+ " Möller. Man har efter flera timmars förhör kunnat släppa gylfen mot borgen, samt "
+			+ "ett löfte om att 'Ta det piano' i fortsättningen. Berörda myndigheter har kontaktats i syfte att"
+			+ " händelsen inte ska inräffa igen.");
+	private JLabel lblHead2 = new JLabel("Klippt utan Skuret");
+	private JTextArea areaText2 = new JTextArea("Uttrycket 'Klippt och Skuret' har gått ur tiden. "
+			+ "Det är 'Skuret' som helt enkelt tröttnat på att alltid komma sist och bestämt sig "
+			+ "för att gå sin egen väg. Medlingsförsöken mellan 'Klippt' och 'Skuret', som skötts av "
+			+ "advokat Thorulf Arwidson, avslutades igår efter ett fruktlöst tiotimmars möte. "
+			+ "Arwidson, som tidigare lyckats medla i så svåra fall som mellan 'Klart' och 'Korvspad' "
+			+ "erkände att förhandlingarna varit en pärs och nu tyvärr måste avbrytas, eller som Thorulf "
+			+ "uttryckte det: - Förhandlingarna har varit en pärs och måste nu tyvärr avbrytas.");
+	private JLabel lblHead3 = new JLabel("Meddelande till döva: ");
+	private JTextArea areaText3 = new JTextArea("Döva bär ofta så kallad 'hängslebyxa', en byxa med hängslen som är känd "
+			+ "bland snickare och hantverkare som en bekväm och praktisk byxa. Hängselbyxan lämnade modet för cirka "
+			+ "10 år sedan bland vanligt folk, men hos döva lever denna byxa kvar. "
+			+ "Efterforskningar påvisar att det inte någonstans skrivits att hängselbyxan inte längre är populär utan att detta mest är något som det snackats om på stan. "
+			+ "Detta har alltså av förklarliga anledningar inte de döva hört."
+			+ " Spermaharen vill, för att sätta stopp för dövbrallan, nu en gång för alla meddela alla döva; "
+			+ "'Hängselbyxa hör till det förgångna. Hängselbyxa bärs av de som är hantverkare eller snickare. Inte av vanligt folk eller de med nedsatt eller obefintlig hörsel. Alla med koll har slutat bära hängslebyxa'. "
+			+ "För att detta meddelande inte skall gå någon förbi följer det här på teckenspråk. " );
+	
+	private JPanel panel1 = new JPanel(new BorderLayout());
+	private JPanel panel2 = new JPanel(new BorderLayout());
+	private JPanel panel3 = new JPanel(new BorderLayout());
 	
 	public UI(Controller inCont) {
 		contr = inCont;
@@ -96,11 +119,12 @@ public class UI extends JPanel {
 		return panelWest;	
 	}
 	
-	public JPanel getPanelCenter() {
+	public JScrollPane getPanelCenter() {
+		
 		JPanel panelW = new JPanel();
 		JPanel panelE = new JPanel();
 		panelW.setPreferredSize(new Dimension(10, 100));
-		panelE.setPreferredSize(new Dimension(200, 100));
+		panelE.setPreferredSize(new Dimension(150, 100));
 		panelW.setOpaque(false);
 		panelE.setOpaque(false);
 		panelCenter.setLayout(new BorderLayout());
@@ -110,21 +134,45 @@ public class UI extends JPanel {
 		panelCenter.add(panelE, BorderLayout.EAST);
 		panelCenter.setBorder(BorderFactory.createTitledBorder("Sport"));
 		panelCenter.setOpaque(false);
-		return panelCenter;
+		JScrollPane scrollFrame = new JScrollPane(panelCenter);
+		panelCenter.setAutoscrolls(true);
+		return scrollFrame;
 	}
 	
 	public JPanel getPanelCenterCenter() {
-		
+		setPanelArt();
 		panelCenterCenter.setOpaque(false);
-		panelCenterCenter.setLayout(new BorderLayout());
+//		panelCenterCenter.setLayout(new BorderLayout());
+		panelCenterCenter.setLayout(new GridLayout(10, 1));
 		lblHead.setFont(getFont().deriveFont(18.0f));
 		areaText.setLineWrap(true);
 		areaText.setWrapStyleWord(true);
+		lblHead2.setFont(getFont().deriveFont(18.0f));
+		areaText2.setLineWrap(true);
+		areaText2.setWrapStyleWord(true);
+		lblHead3.setFont(getFont().deriveFont(18.0f));
+		areaText3.setLineWrap(true);
+		areaText3.setWrapStyleWord(true);
 		
-		panelCenterCenter.add(lblHead, BorderLayout.NORTH);
-		panelCenterCenter.add(areaText, BorderLayout.CENTER);
+		panelCenterCenter.add(panel1);
+		panelCenterCenter.add(panel2);
+		panelCenterCenter.add(panel3);
 		
 		return panelCenterCenter;
+		
+	}
+	
+	public void setPanelArt() {
+		panel1.setOpaque(false);
+		panel2.setOpaque(false);
+		panel3.setOpaque(false);
+		
+		panel1.add(lblHead, BorderLayout.NORTH);
+		panel1.add(areaText, BorderLayout.CENTER);
+		panel2.add(lblHead2, BorderLayout.NORTH);
+		panel2.add(areaText2, BorderLayout.CENTER);
+		panel3.add(lblHead3, BorderLayout.NORTH);
+		panel3.add(areaText3, BorderLayout.CENTER);
 		
 	}
 	
