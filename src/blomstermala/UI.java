@@ -178,7 +178,7 @@ public class UI extends JPanel {
 	}
 	
 	public JPanel getSportpanel() {
-		panelSport.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.BLACK));
+//		panelSport.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.BLACK));
 		JButton btnFoot = new JButton("Fotboll");
 		JButton btnHockey = new JButton("Hockey");
 		JButton btnBox = new JButton("Boxning");
