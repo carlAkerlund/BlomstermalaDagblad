@@ -132,9 +132,10 @@ public class UI extends JPanel {
 		panelCenter.add(getPanelCenterCenter(), BorderLayout.CENTER);
 		panelCenter.add(panelW, BorderLayout.WEST);
 		panelCenter.add(panelE, BorderLayout.EAST);
-		panelCenter.setBorder(BorderFactory.createTitledBorder("Sport"));
+//		panelCenter.setBorder(BorderFactory.createTitledBorder("Sport"));
 		panelCenter.setOpaque(false);
 		JScrollPane scrollFrame = new JScrollPane(panelCenter);
+		scrollFrame.setBorder(BorderFactory.createTitledBorder("Sport"));
 		panelCenter.setAutoscrolls(true);
 		return scrollFrame;
 	}
