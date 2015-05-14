@@ -58,7 +58,7 @@ public class UI extends JPanel {
 			+ "Arwidson, som tidigare lyckats medla i så svåra fall som mellan 'Klart' och 'Korvspad' "
 			+ "erkände att förhandlingarna varit en pärs och nu tyvärr måste avbrytas, eller som Thorulf "
 			+ "uttryckte det: - Förhandlingarna har varit en pärs och måste nu tyvärr avbrytas.");
-	private JLabel lblHead3 = new JLabel("Meddelande till döva: ");
+	private JLabel lblHead3 = new JLabel("Meddelande till döva ");
 	private JTextArea areaText3 = new JTextArea("Döva bär ofta så kallad 'hängslebyxa', en byxa med hängslen som är känd "
 			+ "bland snickare och hantverkare som en bekväm och praktisk byxa. Hängselbyxan lämnade modet för cirka "
 			+ "10 år sedan bland vanligt folk, men hos döva lever denna byxa kvar. "
