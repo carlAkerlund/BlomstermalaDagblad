@@ -1,17 +1,13 @@
 package blomstermala;
 
 import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.FileReader;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-import com.mysql.jdbc.Blob;
+
 
 
 
@@ -97,13 +93,13 @@ public class Database {
 		try {
 			conn = connectToDB();
 			Statement stat = conn.createStatement();
-			String sql = "insert into User " + "(Username)"
+			String sql = "insert into Kommentar " + "(Namn)"
 					+ "values(" + "'" + username + "'";
 			stat.executeUpdate(sql);
 			System.out.println("User added!");
 
 		} catch (Exception e) {
-			System.out.println("");
+			e.printStackTrace();
 		}
 	}
 	public static void main(String [] args){
