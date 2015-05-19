@@ -53,7 +53,7 @@ public class UI extends JPanel {
 	public UI(Controller inCont, Database inData) {
 		dataB = inData;
 		contr = inCont;
-		getArticles();
+		getArticles("Start", null );
 		lblBack.setIcon(backGround);
 		lblBack.setLayout(new BorderLayout());
 		lblBack.setForeground(Color.WHITE);
@@ -145,9 +145,15 @@ public class UI extends JPanel {
 	}
 	
 	public void getArticles(String cat, String underCat) {
+		Article[] art;
 		(for int i = 0; i < articles.length; i++) {
-			if ()
+			if ((articles[i].getKategori.equals(cat)) && (articles.getUnderkat.equals(underCat))) {
+				art[i] = articles[i];
+			}
 		}
+		i = 0;
+		lblHead = art[i].getRubrik;
+		areaText = art[i];
 		
 		
 		
