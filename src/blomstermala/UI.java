@@ -14,8 +14,6 @@ public class UI extends JPanel {
 	
 	private JLabel lblTitle = new JLabel();
 	private JLabel lblBack = new JLabel();
-//	private ImageIcon titleIcon = new ImageIcon("/Users/gustavbodestad/Documents/Skola/Eclipse/BlomstermalaDagblad/res/blomstermåla.png");
-//	private ImageIcon backGround = new ImageIcon("/Users/gustavbodestad/Documents/Skola/Eclipse/BlomstermalaDagblad/res/bakgrund.png");
 	private ImageIcon titleIcon = new ImageIcon("src/media/blomstermåla.png");
 	private ImageIcon backGround = new ImageIcon("src/media/bakgrund.png");
 	
@@ -32,48 +30,30 @@ public class UI extends JPanel {
 	private JButton btnPolitics = new JButton("Politik");
 	private JButton btnFood = new JButton("Livsstil");
 	
-	private String[] sportSub = { "Fotboll", "Hockey", "Bandy", "Korvätning" };
-	private String[] entSub = { "TV", "Film", "Serier", "Skvaller", "Spel" };
-	private String[] PolSub = {"Inrikes", "Utrikes"};
-	private String[] foodSub = {"Träning", "Mat", "Själ"};
+	private Article[] articles;
+	
+	private JPanel panelRead = new JPanel();
 	
 	private Listener listener = new Listener();
 	
 	private Controller contr;
-	private JPanel[] articles;
+	private Database dataB;
 	
-	private JLabel lblHead = new JLabel("Världens längsta gylf sågs till i Centrum");
-	private JTextArea areaText = new JTextArea("Flera personer hörde på onsdag förmiddag av sig till "
-			+ "polisen och vittnade om att en ordentligt lång gylf sågs passera genom"
-			+ " centrum. Polisen kunde konfrontera gylfen och konstaterade snabbt att det "
-			+ "var den hittills längsta som någonsin vandrat på Malmös gator. 'Ett fynd', säger Polismästare"
-			+ " Möller. Man har efter flera timmars förhör kunnat släppa gylfen mot borgen, samt "
-			+ "ett löfte om att 'Ta det piano' i fortsättningen. Berörda myndigheter har kontaktats i syfte att"
-			+ " händelsen inte ska inräffa igen.");
-	private JLabel lblHead2 = new JLabel("Klippt utan Skuret");
-	private JTextArea areaText2 = new JTextArea("Uttrycket 'Klippt och Skuret' har gått ur tiden. "
-			+ "Det är 'Skuret' som helt enkelt tröttnat på att alltid komma sist och bestämt sig "
-			+ "för att gå sin egen väg. Medlingsförsöken mellan 'Klippt' och 'Skuret', som skötts av "
-			+ "advokat Thorulf Arwidson, avslutades igår efter ett fruktlöst tiotimmars möte. "
-			+ "Arwidson, som tidigare lyckats medla i så svåra fall som mellan 'Klart' och 'Korvspad' "
-			+ "erkände att förhandlingarna varit en pärs och nu tyvärr måste avbrytas, eller som Thorulf "
-			+ "uttryckte det: - Förhandlingarna har varit en pärs och måste nu tyvärr avbrytas.");
-	private JLabel lblHead3 = new JLabel("Meddelande till döva ");
-	private JTextArea areaText3 = new JTextArea("Döva bär ofta så kallad 'hängslebyxa', en byxa med hängslen som är känd "
-			+ "bland snickare och hantverkare som en bekväm och praktisk byxa. Hängselbyxan lämnade modet för cirka "
-			+ "10 år sedan bland vanligt folk, men hos döva lever denna byxa kvar. "
-			+ "Efterforskningar påvisar att det inte någonstans skrivits att hängselbyxan inte längre är populär utan att detta mest är något som det snackats om på stan. "
-			+ "Detta har alltså av förklarliga anledningar inte de döva hört."
-			+ " Spermaharen vill, för att sätta stopp för dövbrallan, nu en gång för alla meddela alla döva; "
-			+ "'Hängselbyxa hör till det förgångna. Hängselbyxa bärs av de som är hantverkare eller snickare. Inte av vanligt folk eller de med nedsatt eller obefintlig hörsel. Alla med koll har slutat bära hängslebyxa'. "
-			+ "För att detta meddelande inte skall gå någon förbi följer det här på teckenspråk. " );
+	private JLabel lblHead = new JLabel();
+	private JTextArea areaText = new JTextArea();
+	private JLabel lblHead2 = new JLabel();
+	private JTextArea areaText2 = new JTextArea();
+	private JLabel lblHead3 = new JLabel();
+	private JTextArea areaText3 = new JTextArea();
 	
 	private JPanel panel1 = new JPanel(new BorderLayout());
 	private JPanel panel2 = new JPanel(new BorderLayout());
 	private JPanel panel3 = new JPanel(new BorderLayout());
 	
-	public UI(Controller inCont) {
+	public UI(Controller inCont, Database inData) {
+		dataB = inData;
 		contr = inCont;
+		getArticles();
 		lblBack.setIcon(backGround);
 		lblBack.setLayout(new BorderLayout());
 		lblBack.setForeground(Color.WHITE);
@@ -129,7 +109,7 @@ public class UI extends JPanel {
 		panelE.setOpaque(false);
 		panelCenter.setLayout(new BorderLayout());
 		panelCenter.add(getSportpanel(), BorderLayout.NORTH);
-		panelCenter.add(getPanelCenterCenter(), BorderLayout.CENTER);
+		panelCenter.add(getPanelCenterCenter("Start", null), BorderLayout.CENTER);
 		panelCenter.add(panelW, BorderLayout.WEST);
 		panelCenter.add(panelE, BorderLayout.EAST);
 //		panelCenter.setBorder(BorderFactory.createTitledBorder("Sport"));
@@ -140,7 +120,8 @@ public class UI extends JPanel {
 		return scrollFrame;
 	}
 	
-	public JPanel getPanelCenterCenter() {
+	public JPanel getPanelCenterCenter(String cat, String underCat) {
+		getArticles(cat, underCat);
 		setPanelArt();
 		panelCenterCenter.setOpaque(false);
 //		panelCenterCenter.setLayout(new BorderLayout());
@@ -160,6 +141,26 @@ public class UI extends JPanel {
 		panelCenterCenter.add(panel3);
 		
 		return panelCenterCenter;
+		
+	}
+	
+	public void getArticles(String cat, String underCat) {
+		(for int i = 0; i < articles.length; i++) {
+			if ()
+		}
+		
+		
+		
+		
+	}
+	
+	public JPanel createPanelRead(Article art) {
+		JLabel labelRubrik = new JLabel(art.getHead());
+		JLabel labelText = new JLabel(art.getText());
+		JTextField inNamn = new JTextField();
+		JTextArea inKommentar = new JTextArea();
+		
+		return panelRead;
 		
 	}
 	
@@ -203,7 +204,7 @@ public class UI extends JPanel {
 	private class Listener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == btnSport) {
-				contr.setSport();
+				panelSport.setVisible(true);
 			}
 			
 		}

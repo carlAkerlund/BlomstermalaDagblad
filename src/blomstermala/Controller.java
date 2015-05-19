@@ -9,11 +9,16 @@ public class Controller {
 	private UI ui;
 
 	public Controller() {
-		ui = new UI(this);
+		ui = new UI(this, new Database());
 		setUI();
 	}
 	
 	public void setSport() {
+		
+	}
+	
+	public void getArticles(String cat, String underCat) {
+		
 	}
 	
 	public void setUI() {
