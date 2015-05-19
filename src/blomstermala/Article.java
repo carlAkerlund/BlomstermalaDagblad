@@ -7,13 +7,24 @@ public class Article {
 	private String Innehåll;
 	private String datum;
 	private String Kategori;
+	private String Kommentar;
 	
-	public Article(int inID, String inRubrik, String inInnehåll, String indatum, String inKategori){
+	public Article(int inID, String inRubrik, String inInnehåll, String indatum, String inKategori
+			, String inKommentar){
 		this.Rubrik = inRubrik;
 		this.ID = inID;
 		this.Innehåll = inInnehåll;
 		this.datum = indatum;
 		this.Kategori = inKategori;
+		this.Kommentar = inKommentar;
+	}
+
+	public String getKommentar() {
+		return Kommentar;
+	}
+
+	public void setKommentar(String kommentar) {
+		Kommentar = kommentar;
 	}
 
 	public int getID() {

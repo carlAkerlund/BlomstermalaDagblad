@@ -13,6 +13,7 @@ import java.sql.Statement;
 
 public class Database {
 
+	private Article article;
 	private Connection conn;
 	private Statement stat;
 	private ResultSet rs;
@@ -30,14 +31,18 @@ public class Database {
 		}
 		return conn;
 	}
-	public void getCategorys() {
+	public void getArticles() {
 		System.out.println("Database: ");
 		try {
+			String kommentar = getComments();
 			conn = connectToDB();
 			stat = conn.createStatement();
 			rs = stat.executeQuery("select * from Artikel");
 			while (rs.next()) {
-				System.out.println(rs.getString("Kategori"));
+				Article article1 = new Article(rs.getInt("ID"), rs.getString("Rubrik"),
+				rs.getString("Innehåll"), rs.getString("Publiceringsdatum"), rs.getString("Kategori"),
+				kommentar);
+				System.out.println(kommentar);
 				System.out.println("Kategorier hämtade");
 				
 			}
@@ -45,21 +50,22 @@ public class Database {
 			e.printStackTrace();
 		}
 	}
-	public void getHeadline() {
+	public String getComments() {
 		System.out.println("Database: ");
+		String kommentar = " ";
 		try {
 			conn = connectToDB();
 			stat = conn.createStatement();
-			rs = stat.executeQuery("select * from Artikel");
+			rs = stat.executeQuery("select * from Kommentar");
 			while (rs.next()) {
-				System.out.println(rs.getString("Rubrik"));
-				
-				System.out.println("Artiklar hämtade");
+				kommentar = rs.getString("Namn") + " " +  rs.getString("Innehåll")
+						+ " " + rs.getString("Datum");
 				
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		return kommentar;
 	}
 	public void getArticle() {
 		System.out.println("Database: ");
@@ -104,6 +110,6 @@ public class Database {
 	}
 	public static void main(String [] args){
 		Database db = new Database();
-		db.getCategorys();
+		db.getArticles();
 	}
 }
