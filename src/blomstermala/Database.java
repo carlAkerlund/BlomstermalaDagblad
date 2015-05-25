@@ -36,20 +36,16 @@ public class Database {
 	public void getArticles() {
 		System.out.println("Database: ");
 		try {
-			String kommentar = getComments();
 			conn = connectToDB();
 			stat = conn.createStatement();
 			rs = stat.executeQuery("select * from Artikel");
 			while (rs.next()) {
 				article1 = new Article (rs.getInt("ID"), rs.getString("Rubrik"),
-				rs.getString("Innehåll"), rs.getString("Ingress"), rs.getString("Kategori"),rs.getString("Underkategori"),
-				kommentar);
+				rs.getString("Innehåll"), rs.getString("Ingress"), rs.getString("Kategori"),rs.getString("Underkategori"));
 				article2 = new Article (rs.getInt("ID"), rs.getString("Rubrik"),
-						rs.getString("Innehåll"), rs.getString("Ingress"), rs.getString("Kategori"),rs.getString("Underkategori"),
-						kommentar);
+						rs.getString("Innehåll"), rs.getString("Ingress"), rs.getString("Kategori"),rs.getString("Underkategori"));
 				article3 = new Article (rs.getInt("ID"), rs.getString("Rubrik"),
-						rs.getString("Innehåll"), rs.getString("Ingress"), rs.getString("Kategori"),rs.getString("Underkategori"),
-						kommentar);
+						rs.getString("Innehåll"), rs.getString("Ingress"), rs.getString("Kategori"),rs.getString("Underkategori"));
 				System.out.println("Kategorier hämtade");
 			}
 		} catch (Exception e) {
