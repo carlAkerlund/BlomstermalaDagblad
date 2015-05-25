@@ -7,17 +7,23 @@ import javax.swing.JFrame;
 public class Controller {
 	
 	private UI ui;
+	private Database dataB;
 
 	public Controller() {
-		ui = new UI(this, new Database());
+		ui = new UI(this);
 		setUI();
+		dataB = new Database();
 	}
 	
 	public void setSport() {
 		
 	}
 	
-	public void getArticles(String cat, String underCat) {
+	public void transferArticles(String cat, String underCat) {
+		dataB.getArticles();
+	}
+	
+	public void saveComment(){
 		
 	}
 	

@@ -37,7 +37,6 @@ public class UI extends JPanel {
 	private Listener listener = new Listener();
 	
 	private Controller contr;
-	private Database dataB;
 	
 	private JLabel lblHead = new JLabel();
 	private JTextArea areaText = new JTextArea();
@@ -50,8 +49,7 @@ public class UI extends JPanel {
 	private JPanel panel2 = new JPanel(new BorderLayout());
 	private JPanel panel3 = new JPanel(new BorderLayout());
 	
-	public UI(Controller inCont, Database inData) {
-		dataB = inData;
+	public UI(Controller inCont) {
 		contr = inCont;
 		getArticles("Start", null );
 		lblBack.setIcon(backGround);
@@ -145,24 +143,15 @@ public class UI extends JPanel {
 	}
 	
 	public void getArticles(String cat, String underCat) {
-		Article[] art;
-		(for int i = 0; i < articles.length; i++) {
-			if ((articles[i].getKategori.equals(cat)) && (articles.getUnderkat.equals(underCat))) {
-				art[i] = articles[i];
-			}
-		}
-		i = 0;
-		lblHead = art[i].getRubrik;
-		areaText = art[i];
-		
+
 		
 		
 		
 	}
 	
 	public JPanel createPanelRead(Article art) {
-		JLabel labelRubrik = new JLabel(art.getHead());
-		JLabel labelText = new JLabel(art.getText());
+//		JLabel labelRubrik = new JLabel(art.getHead());
+//		JLabel labelText = new JLabel(art.getText());
 		JTextField inNamn = new JTextField();
 		JTextArea inKommentar = new JTextArea();
 		
