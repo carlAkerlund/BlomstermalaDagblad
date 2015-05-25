@@ -161,6 +161,7 @@ public class UI extends JPanel {
 			str[j] = ((Article) art.get(i)).getRubrik();
 			j++;
 			str[j] = ((Article) art.get(i)).getIngress();
+			j++;
 		}
 	
 	}
