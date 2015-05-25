@@ -158,9 +158,9 @@ public class UI extends JPanel {
 		Object[] str = { lblHead, areaText, lblHead2, areaText2, lblHead3, areaText3 };
 		int j = 0;
 		for(int i = 0; i < art.size(); i++) {
-			str[j] = art.get(i).getRubrik();
+			str[j] = ((Article) art.get(i)).getRubrik();
 			j++;
-			str[j] = art.get(i).getIngress();
+			str[j] = ((Article) art.get(i)).getIngress();
 		}
 	
 	}
