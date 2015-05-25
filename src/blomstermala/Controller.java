@@ -37,7 +37,7 @@ public class Controller {
 			}
 		}
 		
-		ui.setArticles(outArticles);
+		ui.setArticles((ArrayList) outArticles);
 		ui.setCenter();
 	}
 	

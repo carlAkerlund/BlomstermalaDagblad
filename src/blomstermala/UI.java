@@ -12,6 +12,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.swing.*;
 
@@ -153,42 +154,15 @@ public class UI extends JPanel {
 		
 	}
 	
-	public void setArticles(Article[] art) throws FileNotFoundException, IOException {
+	public void setArticles(ArrayList art) {
 		Object[] str = { lblHead, areaText, lblHead2, areaText2, lblHead3, areaText3 };
 		int j = 0;
-		for(int i = 0; i<art.length; i++) {
-			((JLabel) str[j]).setText(art[i].getRubrik());
+		for(int i = 0; i < art.size(); i++) {
+			str[j] = ((Article) art.get(i)).getRubrik();
 			j++;
-			String hej = art[i].getInnehåll();
-			File file = new File(hej);
-			try(BufferedReader br = new BufferedReader(new FileReader(file))){
-				StringBuilder sb = new StringBuilder();
-				String line = br.readLine();
-				while(line != null){
-					sb.append(line);
-					sb.append(System.lineSeparator());
-					line = br.readLine();
-				}
-				String e = sb.toString();
-				System.out.println(e);
-				((JTextArea) str[j]).setText(e);
-				j++;
-			}
-			
+			str[j] = ((Article) art.get(i)).getIngress();
 		}
-		
-		
-		
-	}
 	
-	public JPanel createPanelRead(Article art) {
-//		JLabel labelRubrik = new JLabel(art.getHead());
-//		JLabel labelText = new JLabel(art.getText());
-		JTextField inNamn = new JTextField();
-		JTextArea inKommentar = new JTextArea();
-		
-		return panelRead;
-		
 	}
 	
 	public void setPanelArt() {
