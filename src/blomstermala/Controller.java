@@ -1,6 +1,8 @@
 package blomstermala;
 
 import java.awt.Dimension;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 import javax.swing.JFrame;
 
@@ -19,8 +21,8 @@ public class Controller {
 		
 	}
 	
-	public void transferArticles(String cat) {
-		Article[] inArticles = dataB.getArticles();
+	public void transferArticles(String cat) throws FileNotFoundException, IOException {
+		Article[] inArticles = dataB.returnarticle();
 		Article[] outArticles = new Article[inArticles.length];
 		
 		int count=0;
@@ -35,14 +37,14 @@ public class Controller {
 		ui.setArticles(outArticles);
 	}
 	
-	public void transferArticles(String cat, String underCat) {
-		Article[] inArticles = dataB.getArticles();
+	public void transferArticles(String cat, String underCat) throws FileNotFoundException, IOException {
+		Article[] inArticles = dataB.returnarticle();
 		Article[] outArticles = new Article[inArticles.length];
 		
 		int count=0;
 		
 		for(int i=0 ; i<inArticles.length ; i++){
-			if(inArticles[i].getKategori().equals(cat) && inArticles[i].getUnderKategori().equals(underCat)){
+			if(inArticles[i].getKategori().equals(cat) && inArticles[i].getUnderkategori().equals(underCat)){
 				outArticles[count] = inArticles[i];
 				count++;
 			}
