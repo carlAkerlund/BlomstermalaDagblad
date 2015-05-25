@@ -10,8 +10,8 @@ public class Article {
 	private String[] Kommentar;
 	private String ingress;
 	
-	public Article(int inID, String inRubrik, String inInnehåll,String inKategori
-			, String inIngress, String inUnderkategori){
+	public Article(int inID, String inRubrik, String inInnehåll,String inIngress
+			, String inKategori, String inUnderkategori){
 		this.Rubrik = inRubrik;
 		this.ID = inID;
 		this.Innehåll = inInnehåll;

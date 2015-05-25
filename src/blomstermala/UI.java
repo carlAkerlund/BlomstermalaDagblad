@@ -154,13 +154,13 @@ public class UI extends JPanel {
 		
 	}
 	
-	public void setArticles(ArrayList art) {
+	public void setArticles(ArrayList<Article> art) {
 		Object[] str = { lblHead, areaText, lblHead2, areaText2, lblHead3, areaText3 };
 		int j = 0;
 		for(int i = 0; i < art.size(); i++) {
-			str[j] = ((Article) art.get(i)).getRubrik();
+			str[j] = (art.get(i)).getRubrik();
 			j++;
-			str[j] = ((Article) art.get(i)).getIngress();
+			str[j] = (art.get(i)).getIngress();
 			j++;
 		}
 	

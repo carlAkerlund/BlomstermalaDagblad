@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 
 
@@ -15,7 +16,7 @@ public class Database {
 
 	
 	private Article article1, article2, article3;
-	private Article [] article;
+	private ArrayList <Article> articles = new ArrayList();
 	private Connection conn;
 	private Statement stat;
 	private ResultSet rs;
@@ -44,26 +45,24 @@ public class Database {
 				rs.getString("Innehåll"), rs.getString("Ingress"), rs.getString("Kategori"),rs.getString("Underkategori"));
 				article2 = new Article (rs.getInt("ID"), rs.getString("Rubrik"),
 						rs.getString("Innehåll"), rs.getString("Ingress"), rs.getString("Kategori"),rs.getString("Underkategori"));
-				article3 = new Article (rs.getInt("ID"), rs.getString("Rubrik"),
-						rs.getString("Innehåll"), rs.getString("Ingress"), rs.getString("Kategori"),rs.getString("Underkategori"));
+//				article3 = new Article (rs.getInt("ID"), rs.getString("Rubrik"),
+//						rs.getString("Innehåll"), rs.getString("Ingress"), rs.getString("Kategori"),rs.getString("Underkategori"));
 				System.out.println("Kategorier hämtade");
+				System.out.println(article1.getKategori());
+				System.out.println(article2.getKategori());
+				System.out.println(article3.getKategori());
+				articles.add(article1);
+				articles.add(article2);
+				articles.add(article3);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	public Article[] returnarticle(){
-		article = new Article[3];
-		for(int i = 0; i < article.length; i++){
-			if(i == 1){
-			article[i] = article1;
-			}else if(i == 2){
-				article[i] = article2;
-			}else if(i == 3){
-				article[i] = article3;
-			}
-		}
-		return article;
+	public ArrayList <Article> returnarticle(){
+		getArticles();
+		System.out.println("Articles: " + articles.size());
+		return articles;
 		}
 	
 	public void getArticle() {

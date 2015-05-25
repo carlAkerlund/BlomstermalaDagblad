@@ -24,15 +24,15 @@ public class Controller {
 	}
 	
 	public void transferArticles(String cat) throws FileNotFoundException, IOException {
-		Article[] inArticles = dataB.returnarticle();
+		ArrayList <Article>inArticles =  new ArrayList <Article> (dataB.returnarticle());
 		List<Article> outArticles = new ArrayList<Article>();
 	
 	
 		int count=0;
 		
-		for(int i=0 ; i<inArticles.length ; i++){
-			if(inArticles[i].getKategori().equals(cat)){
-				outArticles.add(inArticles[i]);
+		for(int i=0 ; i<inArticles.size(); i++){
+			if(inArticles.get(i).getKategori().equals(cat)){
+				outArticles.add((Article)inArticles.get(i));
 				count++;
 			}
 		}
@@ -42,14 +42,14 @@ public class Controller {
 	}
 	
 	public void transferArticles(String cat, String underCat) throws FileNotFoundException, IOException {
-		Article[] inArticles = dataB.returnarticle();
+		ArrayList <Article>inArticles =  new ArrayList <Article> (dataB.returnarticle());
 		List<Article> outArticles = new ArrayList<Article>();
 		
 		int count=0;
 		
-		for(int i=0 ; i<inArticles.length ; i++){
-			if(inArticles[i].getKategori().equals(cat) && inArticles[i].getUnderkategori().equals(underCat)){
-				outArticles.add(inArticles[i]);
+		for(int i=0 ; i<inArticles.size(); i++){
+			if(inArticles.get(i).getKategori().equals(cat)){
+				outArticles.add((Article)inArticles.get(i));
 				count++;
 			}
 		}
