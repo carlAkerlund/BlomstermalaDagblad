@@ -51,7 +51,7 @@ public class UI extends JPanel {
 	
 	public UI(Controller inCont) {
 		contr = inCont;
-		getArticles("Start", null );
+		panelSport.setVisible(false);
 		lblBack.setIcon(backGround);
 		lblBack.setLayout(new BorderLayout());
 		lblBack.setForeground(Color.WHITE);
@@ -119,7 +119,6 @@ public class UI extends JPanel {
 	}
 	
 	public JPanel getPanelCenterCenter(String cat, String underCat) {
-		getArticles(cat, underCat);
 		setPanelArt();
 		panelCenterCenter.setOpaque(false);
 //		panelCenterCenter.setLayout(new BorderLayout());
@@ -142,8 +141,14 @@ public class UI extends JPanel {
 		
 	}
 	
-	public void getArticles(String cat, String underCat) {
-
+	public void setArticles(Article[] art) {
+		Object[] str = { lblHead, areaText, lblHead2, areaText2, lblHead3, areaText3 };
+		int j = 0;
+		for(int i = 0; i<art.length; i++) {
+			str[j] = art[i].getRubrik();
+			i++;
+			str[j] = art[i].getInnehåll();
+		}
 		
 		
 		
