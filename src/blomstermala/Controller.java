@@ -62,6 +62,7 @@ public class Controller {
 	
 	public void saveComment(Article art, String commentName, String comment){
 		art.setKommentar(comment);
+		dataB.setUserDB(commentName, art.getKommentar()[art.getKommentar().length]);
 	}
 	
 	public void setUI() {
