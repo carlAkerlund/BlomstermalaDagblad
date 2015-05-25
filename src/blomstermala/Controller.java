@@ -3,6 +3,8 @@ package blomstermala;
 import java.awt.Dimension;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JFrame;
 
@@ -23,13 +25,14 @@ public class Controller {
 	
 	public void transferArticles(String cat) throws FileNotFoundException, IOException {
 		Article[] inArticles = dataB.returnarticle();
-		Article[] outArticles = new Article[inArticles.length];
-		
+		List outArticles = new ArrayList();
+	
+	
 		int count=0;
 		
 		for(int i=0 ; i<inArticles.length ; i++){
 			if(inArticles[i].getKategori().equals(cat)){
-				outArticles[count] = inArticles[i];
+				outArticles.add(inArticles[i]);
 				count++;
 			}
 		}
