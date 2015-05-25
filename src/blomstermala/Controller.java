@@ -35,6 +35,7 @@ public class Controller {
 		}
 		
 		ui.setArticles(outArticles);
+		ui.setCenter();
 	}
 	
 	public void transferArticles(String cat, String underCat) throws FileNotFoundException, IOException {
@@ -51,6 +52,7 @@ public class Controller {
 		}
 		
 		ui.setArticles(outArticles);
+		ui.setCenter();
 	}
 	
 	

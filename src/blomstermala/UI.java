@@ -126,6 +126,10 @@ public class UI extends JPanel {
 		return scrollFrame;
 	}
 	
+	public void setCenter() {
+		lblBack.add(getPanelCenter(), BorderLayout.CENTER);
+	}
+	
 	public JPanel getPanelCenterCenter() {
 		setPanelArt();
 		panelCenterCenter.setOpaque(false);
@@ -228,11 +232,27 @@ public class UI extends JPanel {
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == btnSport) {
 				panelSport.setVisible(true);
-				contr.transferArticles("Sport");
+				try {
+					contr.transferArticles("Sport");
+				} catch (FileNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 			if (e.getSource() == btnFoot) {
 				panelSport.setVisible(true);
-				contr.transferArticles("Sport", "Fotboll");
+				try {
+					contr.transferArticles("Sport", "Fotboll");
+				} catch (FileNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 //			if (e.getSource() == btnSport) {
 //				panelSport.setVisible(true);
