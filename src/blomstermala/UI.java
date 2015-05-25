@@ -34,7 +34,10 @@ public class UI extends JPanel {
 	private JButton btnEnt = new JButton("Nöje");
 	private JButton btnPolitics = new JButton("Politik");
 	private JButton btnFood = new JButton("Livsstil");
-	
+	private JButton btnFoot;
+	private JButton btnHockey;
+	private JButton btnBox;
+	private JButton btnKorv;
 	private Article[] articles;
 	
 	private JPanel panelRead = new JPanel();
@@ -200,10 +203,10 @@ public class UI extends JPanel {
 	
 	public JPanel getSportpanel() {
 //		panelSport.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.BLACK));
-		JButton btnFoot = new JButton("Fotboll");
-		JButton btnHockey = new JButton("Hockey");
-		JButton btnBox = new JButton("Boxning");
-		JButton btnKorv = new JButton("Korvätning");
+		btnFoot = new JButton("Fotboll");
+		btnHockey = new JButton("Hockey");
+		btnBox = new JButton("Boxning");
+		btnKorv = new JButton("Korvätning");
 		btnFoot.setBorderPainted( false );
 		btnHockey.setBorderPainted( false );
 		btnBox.setBorderPainted( false );
@@ -225,7 +228,16 @@ public class UI extends JPanel {
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == btnSport) {
 				panelSport.setVisible(true);
+				contr.transferArticles("Sport");
 			}
+			if (e.getSource() == btnFoot) {
+				panelSport.setVisible(true);
+				contr.transferArticles("Sport", "Fotboll");
+			}
+//			if (e.getSource() == btnSport) {
+//				panelSport.setVisible(true);
+//				contr.transferArticles("Sport");
+//			}
 			
 		}
 		
