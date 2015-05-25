@@ -7,26 +7,32 @@ public class Article {
 	private String Innehåll;
 	private String underkategori;
 	private String Kategori;
-	private String Kommentar;
+	private String[] Kommentar;
 	private String ingress;
 	
 	public Article(int inID, String inRubrik, String inInnehåll,String inKategori
-			, String inKommentar, String inIngress, String inUnderkategori){
+			, String inIngress, String inUnderkategori){
 		this.Rubrik = inRubrik;
 		this.ID = inID;
 		this.Innehåll = inInnehåll;
 		this.Kategori = inKategori;
-		this.Kommentar = inKommentar;
 		this.ingress = inIngress;
 		this.underkategori = inUnderkategori;
 	}
 
-	public String getKommentar() {
+	public String[] getKommentar() {
 		return Kommentar;
 	}
 
 	public void setKommentar(String kommentar) {
-		Kommentar = kommentar;
+		String[] nyKommentar = new String[Kommentar.length + 1];
+		for(int i=0 ; i<nyKommentar.length ; i++){
+			if(i==nyKommentar.length-1){
+				nyKommentar[i] = kommentar;
+			}else{
+				nyKommentar[i] = Kommentar[i];
+			}
+		}
 	}
 
 	public int getID() {
