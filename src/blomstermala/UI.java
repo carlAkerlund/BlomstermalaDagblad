@@ -7,6 +7,11 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 
 import javax.swing.*;
 
@@ -51,7 +56,7 @@ public class UI extends JPanel {
 	
 	public UI(Controller inCont) {
 		contr = inCont;
-		getArticles("Start", null );
+		panelSport.setVisible(false);
 		lblBack.setIcon(backGround);
 		lblBack.setLayout(new BorderLayout());
 		lblBack.setForeground(Color.WHITE);
@@ -107,7 +112,7 @@ public class UI extends JPanel {
 		panelE.setOpaque(false);
 		panelCenter.setLayout(new BorderLayout());
 		panelCenter.add(getSportpanel(), BorderLayout.NORTH);
-		panelCenter.add(getPanelCenterCenter("Start", null), BorderLayout.CENTER);
+		panelCenter.add(getPanelCenterCenter(), BorderLayout.CENTER);
 		panelCenter.add(panelW, BorderLayout.WEST);
 		panelCenter.add(panelE, BorderLayout.EAST);
 //		panelCenter.setBorder(BorderFactory.createTitledBorder("Sport"));
@@ -118,8 +123,7 @@ public class UI extends JPanel {
 		return scrollFrame;
 	}
 	
-	public JPanel getPanelCenterCenter(String cat, String underCat) {
-		getArticles(cat, underCat);
+	public JPanel getPanelCenterCenter() {
 		setPanelArt();
 		panelCenterCenter.setOpaque(false);
 //		panelCenterCenter.setLayout(new BorderLayout());
@@ -142,8 +146,29 @@ public class UI extends JPanel {
 		
 	}
 	
-	public void getArticles(String cat, String underCat) {
-
+	public void setArticles(Article[] art) throws FileNotFoundException, IOException {
+		Object[] str = { lblHead, areaText, lblHead2, areaText2, lblHead3, areaText3 };
+		int j = 0;
+		for(int i = 0; i<art.length; i++) {
+			((JLabel) str[j]).setText(art[i].getRubrik());
+			j++;
+			String hej = art[i].getInnehåll();
+			File file = new File(hej);
+			try(BufferedReader br = new BufferedReader(new FileReader(file))){
+				StringBuilder sb = new StringBuilder();
+				String line = br.readLine();
+				while(line != null){
+					sb.append(line);
+					sb.append(System.lineSeparator());
+					line = br.readLine();
+				}
+				String e = sb.toString();
+				System.out.println(e);
+				((JTextArea) str[j]).setText(e);
+				j++;
+			}
+			
+		}
 		
 		
 		

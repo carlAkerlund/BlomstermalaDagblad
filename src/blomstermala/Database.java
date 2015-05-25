@@ -13,7 +13,9 @@ import java.sql.Statement;
 
 public class Database {
 
-	private Article article;
+	
+	private Article article1, article2, article3;
+	private Article [] article;
 	private Connection conn;
 	private Statement stat;
 	private ResultSet rs;
@@ -39,34 +41,35 @@ public class Database {
 			stat = conn.createStatement();
 			rs = stat.executeQuery("select * from Artikel");
 			while (rs.next()) {
-				Article article1 = new Article(rs.getInt("ID"), rs.getString("Rubrik"),
+				article1 = new Article (rs.getInt("ID"), rs.getString("Rubrik"),
 				rs.getString("Innehåll"), rs.getString("Publiceringsdatum"), rs.getString("Kategori"),
 				kommentar);
-				System.out.println(kommentar);
+				article2 = new Article(rs.getInt("ID"), rs.getString("Rubrik"),
+						rs.getString("Innehåll"), rs.getString("Publiceringsdatum"), rs.getString("Kategori"),
+						kommentar);
+				article3 = new Article(rs.getInt("ID"), rs.getString("Rubrik"),
+						rs.getString("Innehåll"), rs.getString("Publiceringsdatum"), rs.getString("Kategori"),
+						kommentar);
 				System.out.println("Kategorier hämtade");
-				
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	public String getComments() {
-		System.out.println("Database: ");
-		String kommentar = " ";
-		try {
-			conn = connectToDB();
-			stat = conn.createStatement();
-			rs = stat.executeQuery("select * from Kommentar");
-			while (rs.next()) {
-				kommentar = rs.getString("Namn") + " " +  rs.getString("Innehåll")
-						+ " " + rs.getString("Datum");
-				
+	public Article[] returnarticle(){
+		article = new Article[3];
+		for(int i = 0; i < article.length; i++){
+			if(i == 1){
+			article[i] = article1;
+			}else if(i == 2){
+				article[i] = article2;
+			}else if(i == 3){
+				article[i] = article3;
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
 		}
-		return kommentar;
-	}
+		return article;
+		}
+	
 	public void getArticle() {
 		System.out.println("Database: ");
 		try {
@@ -94,19 +97,34 @@ public class Database {
 			e.printStackTrace();
 		}
 	}
-	public void setUserDB(String username) {
+	public void setUserDB(String namn, String kommentar) {
 		System.out.println("Database: setUser()");
 		try {
 			conn = connectToDB();
 			Statement stat = conn.createStatement();
-			String sql = "insert into Kommentar " + "(Namn)"
-					+ "values(" + "'" + username + "'";
+			String sql = "insert into Kommentar " + "(Namn)" + "(Innehåll)"
+					+ "values(" + "'" + namn + "'" + "'" + kommentar  + "'" + ")";
 			stat.executeUpdate(sql);
 			System.out.println("User added!");
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	public String getComments() {
+		System.out.println("Database: ");
+		String kommentar = " ";
+		try {
+			conn = connectToDB();
+			stat = conn.createStatement();
+			rs = stat.executeQuery("select * from Kommentar");
+			while (rs.next()) {
+				kommentar = rs.getString("Namn") + " " +  rs.getString("Innehåll");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return kommentar;
 	}
 	public static void main(String [] args){
 		Database db = new Database();
