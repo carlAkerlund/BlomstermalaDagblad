@@ -25,7 +25,7 @@ public class Controller {
 	
 	public void transferArticles(String cat) throws FileNotFoundException, IOException {
 		Article[] inArticles = dataB.returnarticle();
-		List outArticles = new ArrayList();
+		List<Article> outArticles = new ArrayList<Article>();
 	
 	
 		int count=0;
@@ -37,24 +37,24 @@ public class Controller {
 			}
 		}
 		
-		ui.setArticles((ArrayList) outArticles);
+		ui.setArticles((ArrayList<Article>) outArticles);
 		ui.setCenter();
 	}
 	
 	public void transferArticles(String cat, String underCat) throws FileNotFoundException, IOException {
 		Article[] inArticles = dataB.returnarticle();
-		Article[] outArticles = new Article[inArticles.length];
+		List<Article> outArticles = new ArrayList<Article>();
 		
 		int count=0;
 		
 		for(int i=0 ; i<inArticles.length ; i++){
 			if(inArticles[i].getKategori().equals(cat) && inArticles[i].getUnderkategori().equals(underCat)){
-				outArticles[count] = inArticles[i];
+				outArticles.add(inArticles[i]);
 				count++;
 			}
 		}
 		
-		ui.setArticles(outArticles);
+		ui.setArticles((ArrayList<Article>) outArticles);
 		ui.setCenter();
 	}
 	
