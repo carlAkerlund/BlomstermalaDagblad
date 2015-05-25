@@ -1,5 +1,9 @@
 package blomstermala;
 
-public class ArtPanel {
+import javax.swing.JPanel;
+
+public class ArtPanel extends JPanel{
+	
+	
 
 }
