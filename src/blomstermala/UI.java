@@ -126,6 +126,10 @@ public class UI extends JPanel {
 		return scrollFrame;
 	}
 	
+	public void setCenter() {
+		lblBack.add(getPanelCenter(), BorderLayout.CENTER);
+	}
+	
 	public JPanel getPanelCenterCenter() {
 		setPanelArt();
 		panelCenterCenter.setOpaque(false);
