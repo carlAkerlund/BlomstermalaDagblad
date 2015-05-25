@@ -19,12 +19,42 @@ public class Controller {
 		
 	}
 	
-	public void transferArticles(String cat, String underCat) {
-		dataB.getArticles();
+	public void transferArticles(String cat) {
+		Article[] inArticles = dataB.getArticles();
+		Article[] outArticles = new Article[inArticles.length];
+		
+		int count=0;
+		
+		for(int i=0 ; i<inArticles.length ; i++){
+			if(inArticles[i].getKategori().equals(cat)){
+				outArticles[count] = inArticles[i];
+				count++;
+			}
+		}
+		
+		ui.setArticles(outArticles);
 	}
 	
-	public void saveComment(){
+	public void transferArticles(String cat, String underCat) {
+		Article[] inArticles = dataB.getArticles();
+		Article[] outArticles = new Article[inArticles.length];
 		
+		int count=0;
+		
+		for(int i=0 ; i<inArticles.length ; i++){
+			if(inArticles[i].getKategori().equals(cat) && inArticles[i].getUnderKategori().equals(underCat)){
+				outArticles[count] = inArticles[i];
+				count++;
+			}
+		}
+		
+		ui.setArticles(outArticles);
+	}
+	
+	
+	
+	public void saveComment(Article art, String commentName, String comment){
+		art.setKommentar(comment);
 	}
 	
 	public void setUI() {
