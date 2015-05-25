@@ -42,13 +42,13 @@ public class Database {
 			rs = stat.executeQuery("select * from Artikel");
 			while (rs.next()) {
 				article1 = new Article (rs.getInt("ID"), rs.getString("Rubrik"),
-				rs.getString("Innehåll"), rs.getString("Publiceringsdatum"), rs.getString("Kategori"),
+				rs.getString("Innehåll"), rs.getString("Ingress"), rs.getString("Kategori"),rs.getString("Underkategori"),
 				kommentar);
-				article2 = new Article(rs.getInt("ID"), rs.getString("Rubrik"),
-						rs.getString("Innehåll"), rs.getString("Publiceringsdatum"), rs.getString("Kategori"),
+				article2 = new Article (rs.getInt("ID"), rs.getString("Rubrik"),
+						rs.getString("Innehåll"), rs.getString("Ingress"), rs.getString("Kategori"),rs.getString("Underkategori"),
 						kommentar);
-				article3 = new Article(rs.getInt("ID"), rs.getString("Rubrik"),
-						rs.getString("Innehåll"), rs.getString("Publiceringsdatum"), rs.getString("Kategori"),
+				article3 = new Article (rs.getInt("ID"), rs.getString("Rubrik"),
+						rs.getString("Innehåll"), rs.getString("Ingress"), rs.getString("Kategori"),rs.getString("Underkategori"),
 						kommentar);
 				System.out.println("Kategorier hämtade");
 			}
