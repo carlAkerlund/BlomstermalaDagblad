@@ -55,13 +55,7 @@ public class Database {
 		articles.clear();
 		getArticles();
 		System.out.println("Articles: " + articles.size());
-		for(int i =0; i<articles.size() ; i++){
-			System.out.println(articles.get(i).getRubrik());
-			System.out.println("-");
-			System.out.println(articles.get(i).getIngress());
-			System.out.println();
-			System.out.println();
-		}
+		
 		return articles;
 		}
 	

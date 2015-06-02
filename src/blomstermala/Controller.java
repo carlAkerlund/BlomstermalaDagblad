@@ -64,7 +64,6 @@ public class Controller {
 		
 		
 		ui.setArticles((ArrayList<Article>) outArticles);
-//		ui.setCenter();
 	}
 	
 	

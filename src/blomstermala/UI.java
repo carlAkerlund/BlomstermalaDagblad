@@ -155,12 +155,31 @@ public class UI extends JPanel {
 	}
 	
 	public void setArticles(ArrayList<Article> art) {
-			lblHead.setText(art.get(0).getRubrik());
-			areaText.setText(art.get(0).getIngress());
-			lblHead2.setText(art.get(1).getRubrik());
-			areaText2.setText(art.get(1).getIngress());
-			lblHead3.setText(art.get(2).getRubrik());
-			areaText3.setText(art.get(2).getIngress());
+		System.out.println(art.size());
+				if(art.size()== 1){
+					lblHead.setText(art.get(0).getRubrik());
+					areaText.setText(art.get(0).getIngress());
+					lblHead2.setText(" ");
+					areaText2.setText(" ");
+					lblHead3.setText(" ");
+					areaText3.setText(" ");
+				}
+				if(art.size()== 2){
+					lblHead.setText(art.get(0).getRubrik());
+					areaText.setText(art.get(0).getIngress());
+					lblHead2.setText(art.get(1).getRubrik());
+					areaText2.setText(art.get(1).getIngress());
+					lblHead3.setText(" ");
+					areaText3.setText(" ");
+				}
+				if(art.size()== 3){
+					lblHead.setText(art.get(0).getRubrik());
+					areaText.setText(art.get(0).getIngress());
+					lblHead2.setText(art.get(1).getRubrik());
+					areaText2.setText(art.get(1).getIngress());
+					lblHead3.setText(art.get(2).getRubrik());
+					areaText3.setText(art.get(2).getIngress());
+				}
 		}
 	
 	
