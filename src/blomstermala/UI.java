@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 
 public class UI extends JPanel {
 	
@@ -47,16 +48,18 @@ public class UI extends JPanel {
 	
 	private Controller contr;
 	
-	private JLabel lblHead = new JLabel();
+	private JButton lblHead = new JButton();
 	private JTextArea areaText = new JTextArea();
-	private JLabel lblHead2 = new JLabel();
+	private JButton lblHead2 = new JButton();
 	private JTextArea areaText2 = new JTextArea();
-	private JLabel lblHead3 = new JLabel();
+	private JButton lblHead3 = new JButton();
 	private JTextArea areaText3 = new JTextArea();
 	
 	private JPanel panel1 = new JPanel(new BorderLayout());
 	private JPanel panel2 = new JPanel(new BorderLayout());
 	private JPanel panel3 = new JPanel(new BorderLayout());
+	
+	private ArrayList <Article>art;
 	
 	public UI(Controller inCont) {
 		contr = inCont;
@@ -137,12 +140,18 @@ public class UI extends JPanel {
 //		panelCenterCenter.setLayout(new BorderLayout());
 		panelCenterCenter.setLayout(new GridLayout(10, 1));
 		lblHead.setFont(getFont().deriveFont(18.0f));
+		lblHead.setBorderPainted(false);
+		lblHead.addActionListener(listener);
 		areaText.setLineWrap(true);
 		areaText.setWrapStyleWord(true);
 		lblHead2.setFont(getFont().deriveFont(18.0f));
+		lblHead2.setBorderPainted(false);
+		lblHead2.addActionListener(listener);
 		areaText2.setLineWrap(true);
 		areaText2.setWrapStyleWord(true);
 		lblHead3.setFont(getFont().deriveFont(18.0f));
+		lblHead3.setBorderPainted(false);
+		lblHead3.addActionListener(listener);
 		areaText3.setLineWrap(true);
 		areaText3.setWrapStyleWord(true);
 		
@@ -155,6 +164,8 @@ public class UI extends JPanel {
 	}
 	
 	public void setArticles(ArrayList<Article> art) {
+		this.art = art;
+		
 		System.out.println(art.size());
 				if(art.size()== 1){
 					lblHead.setText(art.get(0).getRubrik());
@@ -246,6 +257,18 @@ public class UI extends JPanel {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
+			}
+			if (e.getSource() == lblHead){
+				System.out.println("#1");
+//				new ArtPanel(art[0]);
+			}
+			if (e.getSource() == lblHead2){
+				System.out.println("#2");
+//				new ArtPanel(art[1]);
+			}
+			if (e.getSource() == lblHead3){
+				System.out.println("#3");
+//				new ArtPanel(art[2]);
 			}
 //			if (e.getSource() == btnSport) {
 //				panelSport.setVisible(true);
