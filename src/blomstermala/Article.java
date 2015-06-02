@@ -7,7 +7,7 @@ public class Article {
 	private String Innehåll;
 	private String underkategori;
 	private String Kategori;
-	private String[] Kommentar;
+	private Kommentar[] Kommentar;
 	private String ingress;
 	
 	public Article(int inID, String inRubrik, String inInnehåll,String inIngress
@@ -20,12 +20,12 @@ public class Article {
 		this.underkategori = inUnderkategori;
 	}
 
-	public String[] getKommentar() {
+	public Kommentar[] getKommentar() {
 		return Kommentar;
 	}
 
-	public void setKommentar(String kommentar) {
-		String[] nyKommentar = new String[Kommentar.length + 1];
+	public void setKommentar(Kommentar kommentar) {
+		Kommentar[] nyKommentar = new Kommentar[Kommentar.length + 1];
 		for(int i=0 ; i<nyKommentar.length ; i++){
 			if(i==nyKommentar.length-1){
 				nyKommentar[i] = kommentar;
