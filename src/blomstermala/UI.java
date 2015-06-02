@@ -155,16 +155,15 @@ public class UI extends JPanel {
 	}
 	
 	public void setArticles(ArrayList<Article> art) {
-		Object[] str = { lblHead, areaText, lblHead2, areaText2, lblHead3, areaText3 };
-		int j = 0;
-		for(int i = 0; i < art.size(); i++) {
-			str[j] = (art.get(i)).getRubrik();
-			j++;
-			str[j] = (art.get(i)).getIngress();
-			j++;
+			lblHead.setText(art.get(0).getRubrik());
+			areaText.setText(art.get(0).getIngress());
+			lblHead2.setText(art.get(1).getRubrik());
+			areaText2.setText(art.get(1).getIngress());
+			lblHead3.setText(art.get(2).getRubrik());
+			areaText3.setText(art.get(2).getIngress());
 		}
 	
-	}
+	
 	
 	public void setPanelArt() {
 		panel1.setOpaque(false);
@@ -206,9 +205,9 @@ public class UI extends JPanel {
 	private class Listener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == btnSport) {
-				panelSport.setVisible(true);
 				try {
 					contr.transferArticles("Sport");
+					panelSport.setVisible(true);
 				} catch (FileNotFoundException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -218,9 +217,9 @@ public class UI extends JPanel {
 				}
 			}
 			if (e.getSource() == btnFoot) {
-				panelSport.setVisible(true);
 				try {
 					contr.transferArticles("Sport", "Fotboll");
+					panelSport.setVisible(true);
 				} catch (FileNotFoundException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
