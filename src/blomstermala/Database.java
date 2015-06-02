@@ -15,14 +15,14 @@ import java.util.ArrayList;
 public class Database {
 
 	
-	private Article article1, article2, article3;
-	private ArrayList <Article> articles = new ArrayList();
+	private Article article1;
+	private ArrayList <Article> articles = new ArrayList<Article>();
 	private Connection conn;
 	private Statement stat;
 	private ResultSet rs;
-	private final String DATABASE_URL = "jdbc:mysql://localhost:3306/BlomstermalaDagblad";
-	private final String USERNAME = "root";
-	private final String PASSWORD = "qweasd123";
+	private final String DATABASE_URL = "jdbc:mysql://10.1.22.39:3306/BlomstermalaDagblad";
+	private final String USERNAME = "user";
+	private final String PASSWORD = "blomstermala";
 	
 	public Connection connectToDB() {
 		System.out.println("Database: Start");
@@ -43,24 +43,14 @@ public class Database {
 			while (rs.next()) {
 				article1 = new Article (rs.getInt("ID"), rs.getString("Rubrik"),
 				rs.getString("Innehåll"), rs.getString("Ingress"), rs.getString("Kategori"),rs.getString("Underkategori"));
-				article2 = new Article (rs.getInt("ID"), rs.getString("Rubrik"),
-						rs.getString("Innehåll"), rs.getString("Ingress"), rs.getString("Kategori"),rs.getString("Underkategori"));
-//				article3 = new Article (rs.getInt("ID"), rs.getString("Rubrik"),
-//						rs.getString("Innehåll"), rs.getString("Ingress"), rs.getString("Kategori"),rs.getString("Underkategori"));
-				System.out.println("Kategorier hämtade");
-				System.out.println(article1.getKategori());
-				System.out.println(article2.getKategori());
-				System.out.println(article3.getKategori());
 				articles.add(article1);
-				articles.add(article2);
-				articles.add(article3);
-			}
+				System.out.println("hämtade");
+				}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 	public ArrayList <Article> returnarticle(){
-		getArticles();
 		System.out.println("Articles: " + articles.size());
 		return articles;
 		}
@@ -124,5 +114,6 @@ public class Database {
 	public static void main(String [] args){
 		Database db = new Database();
 		db.getArticles();
+		db.returnarticle();
 	}
 }
