@@ -46,7 +46,7 @@ public class ArtPanel extends JPanel implements ActionListener {
 		add(lblHead, BorderLayout.NORTH);
 		paneCenter.add(lblText);
 		add(paneCenter, BorderLayout.CENTER);
-		showComments();
+//		showComments();
 			
 	}
 	
