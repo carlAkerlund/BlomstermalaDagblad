@@ -60,7 +60,6 @@ public class UI extends JPanel {
 	
 	public UI(Controller inCont) {
 		contr = inCont;
-		panelSport.setVisible(false);
 		lblBack.setIcon(backGround);
 		lblBack.setLayout(new BorderLayout());
 		lblBack.setForeground(Color.WHITE);
@@ -69,6 +68,7 @@ public class UI extends JPanel {
 		lblBack.add(getPanelNorth(), BorderLayout.NORTH);
 		lblBack.add(getPanelWest(), BorderLayout.WEST);
 		lblBack.add(getPanelCenter(), BorderLayout.CENTER);
+		panelSport.setVisible(false);
 	}
 	
 	public void setController(Controller inCont) {
@@ -206,8 +206,8 @@ public class UI extends JPanel {
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == btnSport) {
 				try {
-					contr.transferArticles("Sport");
 					panelSport.setVisible(true);
+					contr.transferArticles("Sport");
 				} catch (FileNotFoundException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -219,7 +219,7 @@ public class UI extends JPanel {
 			if (e.getSource() == btnFoot) {
 				try {
 					contr.transferArticles("Sport", "Fotboll");
-					panelSport.setVisible(true);
+					
 				} catch (FileNotFoundException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
