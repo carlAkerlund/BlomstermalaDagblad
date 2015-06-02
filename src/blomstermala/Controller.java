@@ -53,12 +53,10 @@ public class Controller {
 		ArrayList <Article>inArticles =  new ArrayList <Article> (dataB.returnarticle());
 		List<Article> outArticles = new ArrayList<Article>();
 		
-		int count=0;
 		
 		for(int i=0 ; i<inArticles.size(); i++){
-			if(inArticles.get(i).getKategori().equals(cat)){
+			if(inArticles.get(i).getKategori().equals(cat) && inArticles.get(i).getUnderkategori().equals(underCat)){
 				outArticles.add((Article)inArticles.get(i));
-				count++;
 			}
 		}
 		

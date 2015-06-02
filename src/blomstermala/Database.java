@@ -21,7 +21,7 @@ public class Database {
 	private Connection conn;
 	private Statement stat;
 	private ResultSet rs;
-	private final String DATABASE_URL = "jdbc:mysql://10.1.22.39:3306/BlomstermalaDagblad";
+	private final String DATABASE_URL = "jdbc:mysql://10.2.24.172:3306/BlomstermalaDagblad";
 	private final String USERNAME = "user";
 	private final String PASSWORD = "blomstermala";
 	
