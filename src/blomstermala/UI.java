@@ -259,16 +259,13 @@ public class UI extends JPanel {
 				}
 			}
 			if (e.getSource() == lblHead){
-				System.out.println("#1");
-//				new ArtPanel(art[0]);
+				new ArtPanel(art.get(0));
 			}
 			if (e.getSource() == lblHead2){
-				System.out.println("#2");
-//				new ArtPanel(art[1]);
+				new ArtPanel(art.get(1));
 			}
 			if (e.getSource() == lblHead3){
-				System.out.println("#3");
-//				new ArtPanel(art[2]);
+				new ArtPanel(art.get(2));
 			}
 //			if (e.getSource() == btnSport) {
 //				panelSport.setVisible(true);
