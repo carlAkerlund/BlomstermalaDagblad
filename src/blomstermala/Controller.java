@@ -17,6 +17,10 @@ public class Controller {
 		ui = new UI(this);
 		setUI();
 		dataB = new Database();
+		
+		ArrayList <Article>articles =  new ArrayList <Article> (dataB.returnarticle());
+		ui.setArticles((ArrayList<Article>) articles);
+		ui.setCenter();
 	}
 	
 	public void setSport() {
@@ -43,7 +47,6 @@ public class Controller {
 		
 		ui.setArticles((ArrayList<Article>) outArticles);
 		ui.setCenter();
-		System.out.println("#1");
 		
 	}
 	
