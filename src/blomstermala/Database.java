@@ -52,6 +52,7 @@ public class Database {
 		}
 	}
 	public ArrayList <Article> returnarticle(){
+		articles.clear();
 		getArticles();
 		System.out.println("Articles: " + articles.size());
 		for(int i =0; i<articles.size() ; i++){
