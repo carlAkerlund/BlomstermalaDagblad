@@ -37,8 +37,14 @@ public class Controller {
 			}
 		}
 		
+		for(int i=0; i<outArticles.size() ; i++){
+			System.out.println(outArticles.get(i).getRubrik());
+		}
+		
 		ui.setArticles((ArrayList<Article>) outArticles);
 		ui.setCenter();
+		System.out.println("#1");
+		
 	}
 	
 	public void transferArticles(String cat, String underCat) throws FileNotFoundException, IOException {
@@ -53,6 +59,7 @@ public class Controller {
 				count++;
 			}
 		}
+		
 		
 		ui.setArticles((ArrayList<Article>) outArticles);
 		ui.setCenter();

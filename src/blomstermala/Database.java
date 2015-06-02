@@ -7,6 +7,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 
 
@@ -51,7 +52,9 @@ public class Database {
 		}
 	}
 	public ArrayList <Article> returnarticle(){
+		getArticles();
 		System.out.println("Articles: " + articles.size());
+		
 		return articles;
 		}
 	
