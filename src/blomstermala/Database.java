@@ -93,7 +93,7 @@ public class Database {
 			conn = connectToDB();
 			Statement stat = conn.createStatement();
 			String sql = "insert into Kommentar " + "(Namn, Innehåll)"
-					+ "values(" + "'" + namn + "', '" + innehåll  + "'" + ")";
+					+ "values(" + "'" + namn + "'" + "'" + innehåll + "'" + ")";
 			stat.executeUpdate(sql);
 			System.out.println("Kommentar!");
 
@@ -119,6 +119,7 @@ public class Database {
 	}
 	
 	public ArrayList <Kommentar> returncomment(){
+		kommentar.clear();
 		getArticle1comments();
 		System.out.println("Comments: " + kommentar.size());
 		return kommentar;
