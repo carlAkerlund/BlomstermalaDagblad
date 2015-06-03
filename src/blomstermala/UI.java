@@ -86,7 +86,7 @@ public class UI extends JPanel {
 		lblBack.add(getPanelWest(), BorderLayout.WEST);
 //		lblBack.add(getPanelCenter(), BorderLayout.CENTER);
 		System.out.println("*********************"+art.getKommentar()[0].getInnehall());
-		lblBack.add(new ArtPanel(art));
+		lblBack.add(new ArtPanel(art, inCont));
 		panelSport.setVisible(false);
 	}
 	
@@ -281,11 +281,11 @@ public class UI extends JPanel {
 			if (e.getSource() == lblHead2){
 
 				contr.setKommentarer();
-				new ArtPanel(art.get(1));
+				new ArtPanel(art.get(1), contr);
 			}
 			if (e.getSource() == lblHead3){
 				contr.setKommentarer();
-				new ArtPanel(art.get(2));
+				new ArtPanel(art.get(2), contr);
 			}
 //			if (e.getSource() == btnSport) {
 //				panelSport.setVisible(true);
