@@ -108,7 +108,7 @@ public class ArtPanel extends JPanel implements ActionListener {
 		Kommentar[] kom = art.getKommentar();
 		System.out.println(kom[0].getInnehall());
 		System.out.println(kom.length);
-		for (int i=0; i < kom.length; i++) {
+		for (int i=1; i < kom.length; i++) {
 			panelSouth.add(new JLabel("" + kom[i].getInnehall() + "\nAv " + kom[i].getNamn() + "\n"));
 			panelSouth.add(new JLabel());
 //			add(panelSouth, BorderLayout.SOUTH);
