@@ -13,13 +13,11 @@ import javax.swing.*;
 
 public class ArtPanel extends JPanel implements ActionListener {
 	
-	private JScrollPane paneCenter = new JScrollPane();
 	private JScrollPane paneSouth = new JScrollPane();
 	
 	private JPanel panelSouth = new JPanel();
 	
 	private JLabel lblHead = new JLabel();
-	private JLabel lblText = new JLabel();
 	
 	private JTextArea areaText = new JTextArea();
 	
@@ -36,9 +34,9 @@ public class ArtPanel extends JPanel implements ActionListener {
 	public ArtPanel(Article article) {
 		this.art = article;
 		setLayout(new BorderLayout());
+		btnAdd.setSize(new Dimension(150, 30));
 		panel.setLayout(new BorderLayout());
 		panelSouth.setLayout(new GridLayout(10,1));
-		paneCenter.setAutoscrolls(true);
 		paneSouth.setAutoscrolls(true);
 		lblHead.setText(art.getRubrik());
 		lblHead.setFont(getFont().deriveFont(18.0f));
@@ -55,8 +53,11 @@ public class ArtPanel extends JPanel implements ActionListener {
 		add(areaText, BorderLayout.CENTER);
 		setOpaque(false);
 		setVisible(true);
-		add(btnAdd, BorderLayout.SOUTH);
+		
+		panelSouth.setOpaque(false);
+		panelSouth.add(btnAdd);
 		btnAdd.addActionListener(this);
+		showComments();
 //		paneCenter.add(panel);
 //		showComments();
 		//HEJ
@@ -100,11 +101,14 @@ public class ArtPanel extends JPanel implements ActionListener {
 	}
 	
 	public void showComments() {
-		Kommentar[] kom = art.getKommentar();
+		Kommentar[] kom = { new Kommentar("Gustav", "Hej"), new Kommentar("Gustav", "Jag hatar häst") };
+//		Kommentar[] kom = art.getKommentar();
 		for (int i=0; i < kom.length; i++) {
 			panelSouth.add(new JLabel("" + kom[i].getInnehall() + "\nAv " + kom[i].getNamn() + "\n"));
-			paneSouth.add(panelSouth);
+			panelSouth.add(new JLabel());
+//			add(panelSouth, BorderLayout.SOUTH);
 		}
+		add(panelSouth, BorderLayout.SOUTH);
 	}
 
 	@Override

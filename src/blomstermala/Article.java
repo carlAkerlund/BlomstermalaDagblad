@@ -7,7 +7,7 @@ public class Article {
 	private String Innehåll;
 	private String underkategori;
 	private String Kategori;
-	private Kommentar[] Kommentar;
+	private Kommentar[] Kommentar = new Kommentar[10];
 	private String ingress;
 	
 	public Article(int inID, String inRubrik, String inInnehåll,String inIngress
