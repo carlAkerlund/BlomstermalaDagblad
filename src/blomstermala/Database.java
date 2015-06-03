@@ -101,12 +101,12 @@ public class Database {
 			e.printStackTrace();
 		}
 	}
-	public void getComments() {
+	public void getArticle1comments() {
 		System.out.println("Database: ");
 		try {
 			conn = connectToDB();
 			stat = conn.createStatement();
-			rs = stat.executeQuery("select * from Kommentar");
+			rs = stat.executeQuery("select * from Kommentar where Tillhör = 1");
 			while (rs.next()) {
 				kom = new Kommentar(rs.getString("Namn") + " ",  rs.getString("Innehåll"));
 				kommentar.add(kom);
@@ -117,8 +117,9 @@ public class Database {
 		}
 		
 	}
-	public ArrayList <Kommentar> returncomment(){
-		getComments();
+	
+		public ArrayList <Kommentar> returncomment(){
+		getArticle1comments();
 		System.out.println("Comments: " + kommentar.size());
 		return kommentar;
 		}
