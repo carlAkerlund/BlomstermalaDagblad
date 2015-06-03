@@ -31,7 +31,8 @@ public class ArtPanel extends JPanel implements ActionListener {
 	
 	private Controller cont;
 	
-	public ArtPanel(Article article) {
+	public ArtPanel(Article article, Controller inCont) {
+		this.cont = inCont;
 		this.art = article;
 		setLayout(new BorderLayout());
 		btnAdd.setSize(new Dimension(150, 30));
@@ -97,9 +98,9 @@ public class ArtPanel extends JPanel implements ActionListener {
 		if (result == JOptionPane.OK_OPTION) {
 			name = nameField.getText();
 			comment = area.getText();
-			art.setKommentar(new Kommentar(name, comment));
-			showComments();
+			cont.setComment(name, comment);
 			cont.article();
+			
 		}
 	}
 	

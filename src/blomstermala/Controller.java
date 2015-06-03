@@ -34,6 +34,10 @@ public class Controller {
 		setUI();
 	}
 	
+	public void setComment(String namn, String innehåll){
+		dataB.setComment(namn, innehåll);
+	}
+	
 	public void transferArticles(String cat) throws FileNotFoundException, IOException {
 		ArrayList <Article>inArticles =  new ArrayList <Article> (dataB.returnarticle());
 		articles.clear();
