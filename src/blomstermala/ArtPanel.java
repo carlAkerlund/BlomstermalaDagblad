@@ -21,6 +21,10 @@ public class ArtPanel extends JPanel implements ActionListener {
 	private JLabel lblHead = new JLabel();
 	private JLabel lblText = new JLabel();
 	
+	private JTextArea areaText = new JTextArea();
+	
+	private JPanel panel = new JPanel();
+	
 	private static JFrame mainFrame = new JFrame();
 	
 	private JButton btnAdd = new JButton("Kommentera");
@@ -32,19 +36,25 @@ public class ArtPanel extends JPanel implements ActionListener {
 	public ArtPanel(Article article) {
 		this.art = article;
 		setLayout(new BorderLayout());
+		panel.setLayout(new BorderLayout());
 		panelSouth.setLayout(new GridLayout(10,1));
 		paneCenter.setAutoscrolls(true);
 		paneSouth.setAutoscrolls(true);
 		lblHead.setText(art.getRubrik());
+		lblHead.setFont(getFont().deriveFont(18.0f));
+		areaText.setLineWrap(true);
+		areaText.setWrapStyleWord(true);
 		try {
-			lblText.setText(setContent());
+			areaText.setText(setContent());
 		} catch (FileNotFoundException e) {	
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		add(lblHead, BorderLayout.NORTH);
-		paneCenter.add(lblText);
+		panel.add(lblHead, BorderLayout.NORTH);
+		panel.add(areaText, BorderLayout.CENTER);
+		panel.setOpaque(false);
+		paneCenter.add(panel);
 		add(paneCenter, BorderLayout.CENTER);
 //		showComments();
 		//HEJ
