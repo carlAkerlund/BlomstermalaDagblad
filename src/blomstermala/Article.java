@@ -40,7 +40,11 @@ public class Article {
 		Kommentar = nyKommentar;
 		
 	}
-
+	
+	public void tabortKommentarer(){
+		Kommentar = new Kommentar[1];
+		Kommentar[0] = new Kommentar("Johan", "Hallå där!");
+	}
 	public int getID() {
 		return ID;
 	}
