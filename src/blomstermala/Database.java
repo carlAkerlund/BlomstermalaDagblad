@@ -18,7 +18,7 @@ public class Database {
 	private Kommentar kom;
 	private Article article1;
 	private ArrayList <Article> articles = new ArrayList<Article>();
-	private ArrayList <Kommentar> kommentar = new ArrayList<Kommentar>();
+	public ArrayList <Kommentar> kommentar = new ArrayList<Kommentar>();
 	private Connection conn;
 	private Statement stat;
 	private ResultSet rs;
