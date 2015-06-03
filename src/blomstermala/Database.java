@@ -87,13 +87,13 @@ public class Database {
 			e.printStackTrace();
 		}
 	}
-	public void setUserDB(Kommentar kom) {
+	public void setComment(String namn, String innehåll) {
 		System.out.println("Database: setUser()");
 		try {
 			conn = connectToDB();
 			Statement stat = conn.createStatement();
 			String sql = "insert into Kommentar " + "(Namn)" + "(Innehåll)"
-					+ "values(" + "'" + kom.getNamn() + "'" + "'" + kom.getInnehall()  + "'" + ")";
+					+ "values(" + "'" + namn + "' , '" + innehåll  + "'" + ")";
 			stat.executeUpdate(sql);
 			System.out.println("User added!");
 
