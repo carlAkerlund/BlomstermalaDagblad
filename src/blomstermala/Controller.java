@@ -12,13 +12,14 @@ public class Controller {
 	
 	private UI ui;
 	private Database dataB;
+	private ArrayList <Article>articles;
 
 	public Controller() {
 		ui = new UI(this);
 		setUI();
 		dataB = new Database();
 		
-		ArrayList <Article>articles =  new ArrayList <Article> (dataB.returnarticle());
+		articles =  new ArrayList <Article> (dataB.returnarticle());
 		ui.setArticles((ArrayList<Article>) articles);
 	}
 	
@@ -27,50 +28,59 @@ public class Controller {
 	}
 	
 	public void article() {
-		ui = new UI(this, "src/media/klippt.txt");
+		setKommentarer();
+		System.out.println(articles.get(0).getKommentar()[0].getInnehall());
+		ui = new UI(this, articles.get(0));
 		setUI();
 	}
 	
 	public void transferArticles(String cat) throws FileNotFoundException, IOException {
 		ArrayList <Article>inArticles =  new ArrayList <Article> (dataB.returnarticle());
-		List<Article> outArticles = new ArrayList<Article>();
-	
-	
-		int count=0;
+		articles.clear();
 		
 		for(int i=0 ; i<inArticles.size(); i++){
 			if(inArticles.get(i).getKategori().equals(cat)){
-				outArticles.add((Article)inArticles.get(i));
-				count++;
+				articles.add((Article)inArticles.get(i));
 			}
 		}
 		
-		for(int i=0; i<outArticles.size() ; i++){
-			System.out.println(outArticles.get(i).getRubrik());
+		for(int i=0; i<articles.size() ; i++){
+			System.out.println(articles.get(i).getRubrik());
 		}
 		
-		ui.setArticles((ArrayList<Article>) outArticles);
+		ui.setArticles((ArrayList<Article>) articles);
 //		ui.setCenter();
 		
 	}
 	
 	public void transferArticles(String cat, String underCat) throws FileNotFoundException, IOException {
 		ArrayList <Article>inArticles =  new ArrayList <Article> (dataB.returnarticle());
-		List<Article> outArticles = new ArrayList<Article>();
 		
+		articles.clear();
 		
 		for(int i=0 ; i<inArticles.size(); i++){
 			if(inArticles.get(i).getKategori().equals(cat) && inArticles.get(i).getUnderkategori().equals(underCat)){
-				outArticles.add((Article)inArticles.get(i));
+				articles.add((Article)inArticles.get(i));
 			}
 		}
 		
 		
-		ui.setArticles((ArrayList<Article>) outArticles);
+		ui.setArticles((ArrayList<Article>) articles);
 	}
 	
 	
-	
+	public void setKommentarer(){
+//		System.out.println("#1");
+//		for(int i=0;i<1 ;i++){
+//			System.out.println(dataB.returncomment().get(i).getNamn());
+//			System.out.println(dataB.returncomment().get(i).getInnehall());
+//		}
+		for(int i=0;i<1 ;i++){
+			
+			articles.get(0).setKommentar(new Kommentar(dataB.returncomment().get(i).getNamn(), dataB.returncomment().get(i).getInnehall()));
+			
+		}
+	}	
 //	public void saveComment(Article art, String commentName, String comment){
 //		art.setKommentar(comment);
 //		dataB.setUserDB(commentName, art.getKommentar()[art.getKommentar().length]);

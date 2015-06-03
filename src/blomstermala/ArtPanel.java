@@ -101,8 +101,9 @@ public class ArtPanel extends JPanel implements ActionListener {
 	}
 	
 	public void showComments() {
-		Kommentar[] kom = { new Kommentar("Gustav", "Hej"), new Kommentar("Gustav", "Jag hatar häst") };
-//		Kommentar[] kom = art.getKommentar();
+		Kommentar[] kom = art.getKommentar();
+		System.out.println(kom[0].getInnehall());
+		System.out.println(kom.length);
 		for (int i=0; i < kom.length; i++) {
 			panelSouth.add(new JLabel("" + kom[i].getInnehall() + "\nAv " + kom[i].getNamn() + "\n"));
 			panelSouth.add(new JLabel());

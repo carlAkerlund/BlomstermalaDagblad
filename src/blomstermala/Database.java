@@ -118,11 +118,11 @@ public class Database {
 		
 	}
 	
-		public ArrayList <Kommentar> returncomment(){
+	public ArrayList <Kommentar> returncomment(){
 		getArticle1comments();
 		System.out.println("Comments: " + kommentar.size());
 		return kommentar;
-		}
+	}
 	public static void main(String [] args){
 		Database db = new Database();
 		db.returncomment();

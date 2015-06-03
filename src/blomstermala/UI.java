@@ -75,7 +75,7 @@ public class UI extends JPanel {
 		panelSport.setVisible(false);
 	}
 	
-	public UI(Controller inCont, String hej) {
+	public UI(Controller inCont, Article art) {
 		contr = inCont;
 		lblBack.setIcon(backGround);
 		lblBack.setLayout(new BorderLayout());
@@ -85,7 +85,8 @@ public class UI extends JPanel {
 		lblBack.add(getPanelNorth(), BorderLayout.NORTH);
 		lblBack.add(getPanelWest(), BorderLayout.WEST);
 //		lblBack.add(getPanelCenter(), BorderLayout.CENTER);
-		lblBack.add(new ArtPanel(new Article(1, "Klippt utan skuret", hej, "", "", "")));
+		System.out.println("*********************"+art.getKommentar()[0].getInnehall());
+		lblBack.add(new ArtPanel(art));
 		panelSport.setVisible(false);
 	}
 	
@@ -275,11 +276,15 @@ public class UI extends JPanel {
 			}
 			if (e.getSource() == lblHead){
 				contr.article();
+//				new ArtPanel(art.get(0));
 			}
 			if (e.getSource() == lblHead2){
+
+				contr.setKommentarer();
 				new ArtPanel(art.get(1));
 			}
 			if (e.getSource() == lblHead3){
+				contr.setKommentarer();
 				new ArtPanel(art.get(2));
 			}
 //			if (e.getSource() == btnSport) {
