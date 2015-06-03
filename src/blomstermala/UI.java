@@ -71,6 +71,7 @@ public class UI extends JPanel {
 		lblBack.add(getPanelNorth(), BorderLayout.NORTH);
 		lblBack.add(getPanelWest(), BorderLayout.WEST);
 //		lblBack.add(getPanelCenter(), BorderLayout.CENTER);
+		lblBack.add(new ArtPanel(new Article(1, "Döva hej hej hej", "src/media/döva.txt", "", "", "")));
 		panelSport.setVisible(false);
 	}
 	
