@@ -55,6 +55,8 @@ public class ArtPanel extends JPanel implements ActionListener {
 		add(areaText, BorderLayout.CENTER);
 		setOpaque(false);
 		setVisible(true);
+		add(btnAdd, BorderLayout.SOUTH);
+		btnAdd.addActionListener(this);
 //		paneCenter.add(panel);
 //		showComments();
 		//HEJ
@@ -108,7 +110,7 @@ public class ArtPanel extends JPanel implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == btnAdd) {
-			
+			createCommentPanel();
 		}
 		
 	}

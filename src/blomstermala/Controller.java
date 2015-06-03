@@ -26,6 +26,11 @@ public class Controller {
 		
 	}
 	
+	public void article() {
+		ui = new UI(this, "src/media/klippt.txt");
+		setUI();
+	}
+	
 	public void transferArticles(String cat) throws FileNotFoundException, IOException {
 		ArrayList <Article>inArticles =  new ArrayList <Article> (dataB.returnarticle());
 		List<Article> outArticles = new ArrayList<Article>();

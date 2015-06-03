@@ -70,8 +70,22 @@ public class UI extends JPanel {
 		add(lblBack);
 		lblBack.add(getPanelNorth(), BorderLayout.NORTH);
 		lblBack.add(getPanelWest(), BorderLayout.WEST);
+		lblBack.add(getPanelCenter(), BorderLayout.CENTER);
+//		lblBack.add(new ArtPanel(new Article(1, "Döva hej hej hej", "src/media/döva.txt", "", "", "")));
+		panelSport.setVisible(false);
+	}
+	
+	public UI(Controller inCont, String hej) {
+		contr = inCont;
+		lblBack.setIcon(backGround);
+		lblBack.setLayout(new BorderLayout());
+		lblBack.setForeground(Color.WHITE);
+		lblBack.setBackground(Color.WHITE);
+		add(lblBack);
+		lblBack.add(getPanelNorth(), BorderLayout.NORTH);
+		lblBack.add(getPanelWest(), BorderLayout.WEST);
 //		lblBack.add(getPanelCenter(), BorderLayout.CENTER);
-		lblBack.add(new ArtPanel(new Article(1, "Döva hej hej hej", "src/media/döva.txt", "", "", "")));
+		lblBack.add(new ArtPanel(new Article(1, "Klippt utan skuret", hej, "", "", "")));
 		panelSport.setVisible(false);
 	}
 	
@@ -260,7 +274,7 @@ public class UI extends JPanel {
 				}
 			}
 			if (e.getSource() == lblHead){
-				new ArtPanel(art.get(0));
+				contr.article();
 			}
 			if (e.getSource() == lblHead2){
 				new ArtPanel(art.get(1));
