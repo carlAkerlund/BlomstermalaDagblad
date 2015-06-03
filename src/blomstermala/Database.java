@@ -60,33 +60,7 @@ public class Database {
 		return articles;
 		}
 	
-	public void getArticle() {
-		System.out.println("Database: ");
-		try {
-			conn = connectToDB();
-			stat = conn.createStatement();
-			rs = stat.executeQuery("select * from Artikel");
-			while (rs.next()) {
-				String File = rs.getString("Innehåll");
-				try(BufferedReader br = new BufferedReader(new FileReader(File))){
-					StringBuilder sb = new StringBuilder();
-					String line = br.readLine();
-					while(line != null){
-						sb.append(line);
-						sb.append(System.lineSeparator());
-						line = br.readLine();
-					}
-					String e = sb.toString();
-					System.out.println(e);
-				}
-				
-				System.out.println("Artikel hämtad");
-				
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+	
 	public void setComment(String namn, String innehåll) {
 		System.out.println("Database: setComment");
 		try {
