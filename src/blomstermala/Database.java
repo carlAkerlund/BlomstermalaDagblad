@@ -18,6 +18,7 @@ public class Database {
 	private Kommentar kom;
 	private Article article1;
 	private ArrayList <Article> articles = new ArrayList<Article>();
+	private ArrayList <Kommentar> kommentar = new ArrayList<Kommentar>();
 	private Connection conn;
 	private Statement stat;
 	private ResultSet rs;
@@ -100,24 +101,29 @@ public class Database {
 			e.printStackTrace();
 		}
 	}
-	public String getComments() {
+	public void getComments() {
 		System.out.println("Database: ");
-		String kommentar = " ";
 		try {
 			conn = connectToDB();
 			stat = conn.createStatement();
 			rs = stat.executeQuery("select * from Kommentar");
 			while (rs.next()) {
 				kom = new Kommentar(rs.getString("Namn") + " ",  rs.getString("Innehåll"));
-				System.out.println(kommentar);
+				kommentar.add(kom);
+				System.out.println("kommentar");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return kommentar;
+		
 	}
+	public ArrayList <Kommentar> returncomment(){
+		getComments();
+		System.out.println("Comments: " + kommentar.size());
+		return kommentar;
+		}
 	public static void main(String [] args){
 		Database db = new Database();
-		db.getComments();
+		db.returncomment();
 	}
 }
