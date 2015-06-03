@@ -51,11 +51,11 @@ public class ArtPanel extends JPanel implements ActionListener {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		panel.add(lblHead, BorderLayout.NORTH);
-		panel.add(areaText, BorderLayout.CENTER);
-		panel.setOpaque(false);
-		paneCenter.add(panel);
-		add(paneCenter, BorderLayout.CENTER);
+		add(lblHead, BorderLayout.NORTH);
+		add(areaText, BorderLayout.CENTER);
+		setOpaque(false);
+		setVisible(true);
+//		paneCenter.add(panel);
 //		showComments();
 		//HEJ
 			
