@@ -97,7 +97,10 @@ public class ArtPanel extends JPanel implements ActionListener {
 		if (result == JOptionPane.OK_OPTION) {
 			name = nameField.getText();
 			comment = area.getText();
-			art.setKommentar(new Kommentar(name, comment));}
+			art.setKommentar(new Kommentar(name, comment));
+			showComments();
+			cont.article();
+		}
 	}
 	
 	public void showComments() {

@@ -75,10 +75,8 @@ public class Controller {
 //			System.out.println(dataB.returncomment().get(i).getNamn());
 //			System.out.println(dataB.returncomment().get(i).getInnehall());
 //		}
-		for(int i=0;i<1 ;i++){
-			
+		for(int i=0;i<1 ;i++){	
 			articles.get(0).setKommentar(new Kommentar(dataB.returncomment().get(i).getNamn(), dataB.returncomment().get(i).getInnehall()));
-			
 		}
 	}	
 //	public void saveComment(Article art, String commentName, String comment){
