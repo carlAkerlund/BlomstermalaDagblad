@@ -15,13 +15,13 @@ import java.util.Arrays;
 
 public class Database {
 
-	
+	private Kommentar kom;
 	private Article article1;
 	private ArrayList <Article> articles = new ArrayList<Article>();
 	private Connection conn;
 	private Statement stat;
 	private ResultSet rs;
-	private final String DATABASE_URL = "jdbc:mysql://10.2.24.172:3306/BlomstermalaDagblad";
+	private final String DATABASE_URL = "jdbc:mysql://10.1.22.39:3306/BlomstermalaDagblad";
 	private final String USERNAME = "user";
 	private final String PASSWORD = "blomstermala";
 	
@@ -86,13 +86,13 @@ public class Database {
 			e.printStackTrace();
 		}
 	}
-	public void setUserDB(String namn, String kommentar) {
+	public void setUserDB(Kommentar kom) {
 		System.out.println("Database: setUser()");
 		try {
 			conn = connectToDB();
 			Statement stat = conn.createStatement();
 			String sql = "insert into Kommentar " + "(Namn)" + "(Innehåll)"
-					+ "values(" + "'" + namn + "'" + "'" + kommentar  + "'" + ")";
+					+ "values(" + "'" + kom.getNamn() + "'" + "'" + kom.getInnehall()  + "'" + ")";
 			stat.executeUpdate(sql);
 			System.out.println("User added!");
 
@@ -108,7 +108,8 @@ public class Database {
 			stat = conn.createStatement();
 			rs = stat.executeQuery("select * from Kommentar");
 			while (rs.next()) {
-				kommentar = rs.getString("Namn") + " " +  rs.getString("Innehåll");
+				kom = new Kommentar(rs.getString("Namn") + " ",  rs.getString("Innehåll"));
+				System.out.println(kommentar);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -117,7 +118,6 @@ public class Database {
 	}
 	public static void main(String [] args){
 		Database db = new Database();
-		db.getArticles();
-		db.returnarticle();
+		db.getComments();
 	}
 }
