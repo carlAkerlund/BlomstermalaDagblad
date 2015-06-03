@@ -70,7 +70,7 @@ public class UI extends JPanel {
 		add(lblBack);
 		lblBack.add(getPanelNorth(), BorderLayout.NORTH);
 		lblBack.add(getPanelWest(), BorderLayout.WEST);
-		lblBack.add(getPanelCenter(), BorderLayout.CENTER);
+//		lblBack.add(getPanelCenter(), BorderLayout.CENTER);
 		panelSport.setVisible(false);
 	}
 	
