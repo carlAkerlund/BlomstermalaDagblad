@@ -86,7 +86,7 @@ public class ArtPanel extends JPanel implements ActionListener {
 		int result = 0;
 		String name, comment;
 		JTextField nameField = new JTextField(8);
-		JTextArea area = new JTextArea(8, 30);
+		JTextArea area = new JTextArea();
 
 		JPanel panel = new JPanel();
 		panel.setLayout(new GridLayout(2, 1));
