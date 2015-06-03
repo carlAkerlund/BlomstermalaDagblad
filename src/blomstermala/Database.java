@@ -66,8 +66,8 @@ public class Database {
 		try {
 			conn = connectToDB();
 			Statement stat = conn.createStatement();
-			String sql = "insert into Kommentar " + "(Namn, Innehåll)"
-					+ "values(" + "'" + namn + "'" + "'" + innehåll + "'" + ")";
+			String sql = "insert into Kommentar (Namn, Innehåll)"
+					+ "values (namn, innehåll)";
 			stat.executeUpdate(sql);
 			System.out.println("Kommentar!");
 
@@ -100,6 +100,6 @@ public class Database {
 	}
 	public static void main(String [] args){
 		Database db = new Database();
-		db.returncomment();
+		
 	}
 }
